@@ -27,4 +27,18 @@ public class AppTest {
         App pw = new App();
         assertTrue(pw.passwordLength("HelloWorld"));
     }
+
+    @Test
+    @DisplayName("Has password upper and lower case letters - true")
+    public void hasUpperAndLowerCase1(){
+        App pw = new App();
+        assertTrue(pw.hasUpperAndLowerCase("HelloWorld"));
+    }
+
+    @Test
+    @DisplayName("Has password upper and lower case letters - false")
+    public void hasUpperAndLowerCase1(){
+        App pw = new App();
+        assertFalse(pw.hasUpperAndLowerCase("helloworld"));
+    }
 }
