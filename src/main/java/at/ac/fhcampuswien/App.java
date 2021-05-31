@@ -7,11 +7,25 @@ public class App {
     }
 
     public boolean hasUpperAndLowerCase(String password){
-        return true;
+        char[] chars = password.toCharArray();
+        boolean upper = false;
+        boolean lower = false;
+
+        for(char a : chars){
+            if(a > 96 && a < 123) lower = true;
+            if(a > 64 && a < 91) upper = true;
+        }
+        return upper && lower;
     }
 
     public boolean hasDigit(String password){
-        return true;
+        char[] chars = password.toCharArray();
+
+
+        for(char a : chars){
+            if(Character.isDigit(a)) return true;
+        }
+        return false;
     }
 
     public boolean hasSpecialSign(String password){
