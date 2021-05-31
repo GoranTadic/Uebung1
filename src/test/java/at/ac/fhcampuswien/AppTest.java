@@ -37,8 +37,43 @@ public class AppTest {
 
     @Test
     @DisplayName("Has password upper and lower case letters - false")
-    public void hasUpperAndLowerCase1(){
+    public void hasUpperAndLowerCase2(){
         App pw = new App();
         assertFalse(pw.hasUpperAndLowerCase("helloworld"));
+    }
+
+    @Test
+    @DisplayName("Has password digits - true")
+    public void hasDigit1(){
+        App pw = new App();
+        assertTrue(pw.hasDigit("Hello8World"));
+    }
+
+    @Test
+    @DisplayName("Has password digits - false")
+    public void hasDigit2(){
+        App pw = new App();
+        assertFalse(pw.hasDigit("HelloWorld"));
+    }
+
+    @Test
+    @DisplayName("Has password special signs - true")
+    public void hasSpecialSign1(){
+        App pw = new App();
+        assertTrue(pw.hasSpecialSign("HelloWorld?"));
+    }
+
+    @Test
+    @DisplayName("Has password special signs - false")
+    public void hasSpecialSign2(){
+        App pw = new App();
+        assertFalse(pw.hasSpecialSign("HelloWorld"));
+    }
+
+    @Test
+    @DisplayName("Has password special signs - not allowed sign")
+    public void hasSpecialSign3(){
+        App pw = new App();
+        assertFalse(pw.hasSpecialSign("HelloWorld["));
     }
 }
