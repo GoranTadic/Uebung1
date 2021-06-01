@@ -39,4 +39,28 @@ public class App {
 
         return mustHave;
     }
+
+    public boolean hasContinuousNumbers(String password){
+        char[] chars = password.toCharArray();
+
+        for(int i = 0; i < (chars.length - 2); i++){
+            if(Character.isDigit(chars[i])){
+                if(chars[i+1] == chars[i] + 1 && chars[i+2] == chars[i] + 2) return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean hasRepeatingNumbers(String password){
+        return true;
+    }
+
+    public boolean isValid(String password){
+        return passwordLength(password)
+                && hasDigit(password)
+                && hasUpperAndLowerCase(password)
+                && hasSpecialChar(password)
+                && hasContinuousNumbers(password)
+                && hasRepeatingNumbers(password);
+    }
 }

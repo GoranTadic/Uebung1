@@ -18,7 +18,7 @@ public class AppTest {
     @DisplayName("Has password valid length 2")
     public void passwordLength2(){
         App pw = new App();
-        assertFalse(pw.passwordLength("HelloWorldThisPasswordIsTooLong"));
+        assertFalse(pw.passwordLength("HelloThisPasswordIsTooLong"));
     }
 
     @Test
@@ -82,5 +82,68 @@ public class AppTest {
     public void hasSpecialChar3(){
         App pw = new App();
         assertFalse(pw.hasSpecialChar("Hello[World"));
+    }
+
+    @Test
+    @DisplayName("Has password continuous numbers 1")
+    public void hasContinuousNumbers1(){
+        App pw = new App();
+        assertTrue(pw.hasContinuousNumbers("Hello12World34"));
+    }
+
+    @Test
+    @DisplayName("Has password continuous numbers 2")
+    public void hasContinuousNumbers2(){
+        App pw = new App();
+        assertFalse(pw.hasContinuousNumbers("Hello12World345"));
+    }
+
+    @Test
+    @DisplayName("Has password repeating numbers 1")
+    public void hasRepeatingNumbers1(){
+        App pw = new App();
+        assertTrue(pw.hasRepeatingNumbers("Hello111World"));
+    }
+
+    @Test
+    @DisplayName("Has password repeating numbers 2")
+    public void hasRepeatingNumbers2(){
+        App pw = new App();
+        assertFalse(pw.hasRepeatingNumbers("Hello1111World"));
+    }
+
+    @Test
+    @DisplayName("Testing all requierments 1")
+    public void isValid1(){
+        App pw = new App();
+        assertTrue(pw.isValid("Hello12$333World"));
+    }
+
+    @Test
+    @DisplayName("Testing all requierments 2")
+    public void isValid2(){
+        App pw = new App();
+        assertTrue(pw.isValid("Hello12$333World"));
+    }
+
+    @Test
+    @DisplayName("Testing all requierments 3")
+    public void isValid3(){
+        App pw = new App();
+        assertTrue(pw.isValid("p4$$W0rD"));
+    }
+
+    @Test
+    @DisplayName("Testing all requierments 4")
+    public void isValid4(){
+        App pw = new App();
+        assertFalse(pw.isValid("Hello123$333World"));
+    }
+
+    @Test
+    @DisplayName("Testing all requierments 5")
+    public void isValid5(){
+        App pw = new App();
+        assertFalse(pw.isValid("Hello12$§333World"));
     }
 }
