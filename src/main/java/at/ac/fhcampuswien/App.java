@@ -28,7 +28,15 @@ public class App {
         return false;
     }
 
-    public boolean hasSpecialSign(String password){
-        return true;
+    public boolean hasSpecialChar(String password){
+        String[] string = password.split("");
+        boolean mustHave = false;
+
+        for(String a : string){
+            if(a.matches("[^a-zA-Z0-9()#$?!%/@]")) return false;
+            if(a.matches("[()#$?!%/@]")) mustHave = true;
+        }
+
+        return mustHave;
     }
 }

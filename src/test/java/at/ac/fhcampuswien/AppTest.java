@@ -12,7 +12,6 @@ public class AppTest {
     public void passwordLength1(){
         App pw = new App();
         assertFalse(pw.passwordLength("Hello"));
-        assertEquals(false, pw.passwordLength("Hello"));
     }
 
     @Test
@@ -65,23 +64,23 @@ public class AppTest {
     }
 
     @Test
-    @DisplayName("Has password special signs 1")
-    public void hasSpecialSign1(){
+    @DisplayName("Has password special characters 1")
+    public void hasSpecialChar1(){
         App pw = new App();
-        assertTrue(pw.hasSpecialSign("HelloWorld?"));
+        assertTrue(pw.hasSpecialChar("Hello?World"));
     }
 
     @Test
-    @DisplayName("Has password special signs 2")
-    public void hasSpecialSign2(){
+    @DisplayName("Has password special characters 2")
+    public void hasSpecialChar2(){
         App pw = new App();
-        assertFalse(pw.hasSpecialSign("HelloWorld"));
+        assertFalse(pw.hasSpecialChar("Hello?[World"));
     }
 
     @Test
-    @DisplayName("Has password special signs 3")
-    public void hasSpecialSign3(){
+    @DisplayName("Has password special characters 3")
+    public void hasSpecialChar3(){
         App pw = new App();
-        assertFalse(pw.hasSpecialSign("HelloWorld["));
+        assertFalse(pw.hasSpecialChar("Hello[World"));
     }
 }
