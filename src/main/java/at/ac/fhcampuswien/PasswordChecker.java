@@ -1,6 +1,6 @@
 package at.ac.fhcampuswien;
 
-public class App {
+public class PasswordChecker {
 
     public boolean passwordLength(String password){
         return password.length() > 7 && password.length() < 26;
@@ -52,6 +52,13 @@ public class App {
     }
 
     public boolean hasRepeatingNumbers(String password){
+        char[] chars = password.toCharArray();
+
+        for(int i = 0; i < (chars.length - 3); i++){
+            if(Character.isDigit(chars[i])){
+                if(chars[i + 1] == chars[i] && chars[i + 2] == chars[i] && chars[i + 3] == chars[i]) return false;
+            }
+        }
         return true;
     }
 
